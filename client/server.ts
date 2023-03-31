@@ -2,6 +2,7 @@ import 'zone.js/node';
 
 import { APP_BASE_HREF } from '@angular/common';
 import { ngExpressEngine } from '@nguniversal/express-engine';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 import * as express from 'express';
 import { existsSync } from 'fs';
 import { join } from 'path';
@@ -16,6 +17,14 @@ export function app(): express.Express {
     ? 'index.original.html'
     : 'index';
 
+  server.use(
+    '/api',
+    createProxyMiddleware({
+      target: 'http://localhost:3000',
+      changeOrigin: true,
+      secure: false,
+    })
+  );
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)
   server.engine(
     'html',

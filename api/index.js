@@ -9,4 +9,8 @@ app.get('/api', (req, res) => {
   res.status(200).json({ result: 'API OK!' });
 });
 
+app.get('/api/user', (req, res) => {
+  res.status(200).json({ name: 'Jean' });
+});
+
 app.listen(3000);

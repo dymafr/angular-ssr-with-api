@@ -14,4 +14,8 @@ export class AppComponent {
   ngOnInit() {
     this.http.get('/api').subscribe((res) => console.log(res));
   }
+
+  public getUser() {
+    this.http.get('/api/user').subscribe((res) => console.log(res));
+  }
 }

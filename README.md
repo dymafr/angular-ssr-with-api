@@ -52,3 +52,5 @@ Pour rediriger les requêtes quand on utilise le serveur de developpement en mod
 - On ajoute également TransferHttpCacheModule dans app.module.
 
 - On provide l'intercepteur dans app.module également.
+
+- On ajoute un proxy dans le fichier server.ts pour les requêtes suivante (qui ne font pas parties du rendu initial).
